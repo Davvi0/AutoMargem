@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MARGEM AUTO | Administração</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+    <div class="app">
+
+
+        <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                MARGEM AUTO
+
+                <span>
+                    ESTÉTICA AUTOMOTIVA
+                </span>
+
+            </div>
+
+
+            <nav>
+
+                <a
+                    href="#"
+                    id="navDashboard"
+                    class="menu-item active"
+                >
+                    <span>▤</span>
+                    Dashboard
+                </a>
+                <a
+                    href="#"
+                    id="navAgenda"
+                    class="menu-item"
+                >
+
+                    <span>▦</span>
+
+                    Agenda
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="navReativacao"
+                    class="menu-item"
+                >
+
+                    <span>♻</span>
+
+                    Reativação
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="navFinanceiro"
+                    class="menu-item"
+                >
+
+                    <span>$</span>
+
+                    Financeiro
+
+                </a>
+
+                <a href="#" id="navPrecos" class="menu-item">
+                    <span>R$</span>
+                    Preços
+                </a>
+
+                <a href="#" id="navClientes" class="menu-item">
+                    <span>◎</span>
+                    Clientes
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button id="btnSair">
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ============================= -->
+        <!-- CONTEÚDO -->
+        <!-- ============================= -->
+
+        <main class="content">
+
+
+            <!-- ================================= -->
+            <!-- ÁREA AGENDA -->
+            <!-- ================================= -->
+
+            <section id="paginaDashboard" class="pagina ativa"></section>
+
+            <section id="paginaPrecos" class="pagina"></section>
+            <section id="paginaClientes" class="pagina"></section>
+
+            <section
+                id="paginaAgenda"
+                class="pagina"
+            >
+
+
+                <!-- CABEÇALHO -->
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h1>
+                            Agenda
+                        </h1>
+
+                        <p>
+                            Visão geral dos seus atendimentos
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Administrador
+                            </strong>
+
+                            <small>
+                                Online
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+
+                <!-- DATA -->
+
+                <section class="agenda-header">
+
+                    <div class="date-navigation">
+
+                        <button
+                            id="btnAnterior"
+                            aria-label="Dia anterior"
+                        >
+                            ‹
+                        </button>
+
+
+                        <div class="current-date">
+
+                            <strong id="mesAtual">
+                                Carregando...
+                            </strong>
+
+                            <span id="dataSelecionada">
+                                ...
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            id="btnProximo"
+                            aria-label="Próximo dia"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+
+                    <div class="agenda-header-acoes">
+
+                        <button
+                            class="btnHoje"
+                            id="btnHoje"
+                        >
+                            Hoje
+                        </button>
+
+
+                        <button
+                            class="btnImprimir"
+                            id="btnImprimir"
+                            type="button"
+                        >
+                            🖨 Imprimir agenda
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- RESUMO -->
+
+                <section class="summary">
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Agendamentos
+                        </span>
+
+                        <strong id="totalAgendamentos">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Confirmados
+                        </span>
+
+                        <strong id="totalConfirmados">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Horários livres
+                        </span>
+
+                        <strong id="totalLivres">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- AGENDA -->
+
+                <section class="agenda">
+
+                    <div class="agenda-title">
+
+                        <div>
+
+                            <h2 id="tituloData">
+                                Agenda
+                            </h2>
+
+                            <span>
+                                Horários de atendimento
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="listaAgendamentos">
+
+                        <div class="loading">
+                            Carregando agenda...
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </section>
+
+
+
+            <!-- ================================= -->
+            <!-- ÁREA FINANCEIRO -->
+            <!-- ================================= -->
+
+            <section
+                id="paginaFinanceiro"
+                class="pagina"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h1>
+                            Financeiro
+                        </h1>
+
+                        <p>
+                            Faturamento e despesas do período
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Administrador
+                            </strong>
+
+                            <small>
+                                Online
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+                <!-- MÊS -->
+
+                <section class="agenda-header">
+
+                    <div class="date-navigation">
+
+                        <button
+                            id="btnMesAnterior"
+                            aria-label="Mês anterior"
+                        >
+                            ‹
+                        </button>
+
+
+                        <div class="current-date">
+
+                            <strong id="mesFinanceiro">
+                                Carregando...
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            id="btnMesProximo"
+                            aria-label="Próximo mês"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+
+                    <button
+                        class="btnHoje"
+                        id="btnNovaDespesa"
+                        type="button"
+                    >
+                        + Nova despesa
+                    </button>
+
+                </section>
+
+
+                <!-- RESUMO FINANCEIRO -->
+
+                <section class="summary">
+
+                    <div class="summary-card">
+                        <span>Faturamento</span>
+                        <strong id="totalFaturamento">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span>Despesas</span>
+                        <strong id="totalDespesas">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span>Saldo</span>
+                        <strong id="totalSaldo">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                </section>
+
+
+                <!-- ENTRADAS -->
+
+                <section class="agenda">
+
+                    <div class="agenda-title">
+                        <div>
+                            <h2>Entradas</h2>
+                            <span>Agendamentos com valor lançado no período</span>
+                        </div>
+                    </div>
+
+                    <div id="listaEntradas">
+                        <div class="loading">Carregando...</div>
+                    </div>
+
+                </section>
+
+
+                <!-- DESPESAS -->
+
+                <section class="agenda" style="margin-top:16px">
+
+                    <div class="agenda-title">
+                        <div>
+                            <h2>Despesas</h2>
+                            <span>Produtos, contas e outros custos do período</span>
+                        </div>
+                    </div>
+
+                    <div id="listaDespesas">
+                        <div class="loading">Carregando...</div>
+                    </div>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- ================================= -->
+            <!-- ÁREA REATIVAÇÃO -->
+            <!-- ================================= -->
+
+            <section
+                id="paginaReativacao"
+                class="pagina"
+            >
+
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h1>
+                            Reativação
+                        </h1>
+
+                        <p>
+                            Clientes que estão há algum tempo sem retornar
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin">
+
+                        <div class="avatar">
+                            A
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Administrador
+                            </strong>
+
+                            <small>
+                                Online
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+
+                <!-- RESUMO REATIVAÇÃO -->
+
+                <section class="summary">
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Clientes para reativar
+                        </span>
+
+                        <strong id="totalReativacao">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>
+                            Período
+                        </span>
+
+                        <strong>
+                            30+ dias
+                        </strong>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- LISTA -->
+
+                <section class="agenda">
+
+                    <div class="agenda-title">
+
+                        <div>
+
+                            <h2>
+                                Clientes
+                            </h2>
+
+                            <span>
+                                Entre em contato com quem está há mais tempo sem voltar
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="listaReativacao">
+
+                        <div class="loading">
+                            Carregando clientes...
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- MODAL AGENDAMENTO -->
+    <!-- ================================= -->
+
+    <div
+        id="modalAgendamento"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Novo agendamento
+                    </h2>
+
+                    <p id="horarioModal">
+                        Horário: --:--
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="fecharModal"
+                    class="fechar-modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="formAgendamento">
+
+
+                <label for="nomeCliente">
+                    Nome do cliente
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeCliente"
+                    placeholder="Ex.: Maria Silva"
+                    required
+                >
+
+
+                <label for="whatsappCliente">
+                    WhatsApp
+                </label>
+
+                <input
+                    type="tel"
+                    id="whatsappCliente"
+                    placeholder="Ex.: 15999999999"
+                    required
+                >
+
+
+
+                <label for="procedimentoCliente">
+                    Procedimento
+                </label>
+
+                <input
+                    type="text"
+                    id="procedimentoCliente"
+                    list="servicosLista"
+                    placeholder="Ex.: Polimento técnico"
+                    required
+                >
+                <datalist id="servicosLista"></datalist>
+
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        id="cancelarModal"
+                        class="btn-modal-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-modal-agendar"
+                    >
+                        Agendar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+        <!-- ================================= -->
+    <!-- MODAL: NOVA DESPESA -->
+    <!-- ================================= -->
+
+    <div id="modalDespesa" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <h2>Nova despesa</h2>
+                    <p>Lançar um custo da MARGEM AUTO</p>
+                </div>
+
+                <button id="fecharModalDespesa" class="fechar-modal">×</button>
+            </div>
+
+            <form id="formDespesa">
+
+                <label for="descricaoDespesa">Descrição</label>
+                <input type="text" id="descricaoDespesa" placeholder="Ex.: Produtos de limpeza de pele" required>
+
+                <label for="categoriaDespesa">Categoria (opcional)</label>
+                <input type="text" id="categoriaDespesa" placeholder="Ex.: Produtos, Aluguel, Equipamento">
+
+                <label for="valorDespesa">Valor (R$)</label>
+                <input type="number" id="valorDespesa" placeholder="Ex.: 200" step="0.01" min="0" required>
+
+                <label for="dataDespesa">Data</label>
+                <input type="date" id="dataDespesa" required>
+
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarModalDespesa" class="btn-modal-cancelar">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-modal-agendar">
+                        Salvar
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- ÁREA DE IMPRESSÃO (fica oculta na tela; só aparece ao imprimir) -->
+    <!-- ================================= -->
+
+    <div id="areaImpressao"></div>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin-config.js"></script>
+    <script src="core.js"></script>
+    <script src="dashboard/dashboard.js"></script>
+    <script src="precos/precos.js"></script>
+    <script src="clientes/clientes.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+/* ==========================================================
+   MARGEM AUTO — Área do cliente (usa as variáveis de style.css)
+   ========================================================== */
+.cl { padding: calc(var(--hh) + clamp(28px, 6vw, 72px)) 0 clamp(60px, 9vw, 120px); min-height: 80vh }
+.cl-wrap { max-width: 980px }
+.cl h1 { font-size: clamp(3.2rem, 11vw, 7rem); line-height: .92; margin-bottom: 20px }
+.cl-sub { color: var(--g1); max-width: 520px; margin-bottom: 36px }
+
+/* formulários (login, cadastro, perfil) */
+.cl-login .cl-sub { margin-bottom: 26px }
+.cl-form { max-width: 460px }
+.mdl .cl-form { max-width: none; margin-top: 22px }
+.cl-form label:not(.chk) { display: block; font: 700 11px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--g1); margin: 22px 0 10px }
+.cl-form label.alt, .mdl label.alt { display: block; font: 700 11px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--g1); margin: 18px 0 10px }
+.cl-form .btn[type="submit"].lg { width: 100%; margin-top: 24px }
+.cl-form input[type="text"], .cl-form input[type="tel"], .cl-form input[type="email"], .cl-form input[type="password"], .mdl input[type="date"] { width: 100%; min-height: 54px; padding: 0 16px; background: var(--k1); color: var(--w); border: 1px solid var(--line2); border-radius: 2px; font: 500 16px var(--sans); transition: border-color .3s, background .3s }
+.cl-form input:focus, .mdl input[type="date"]:focus { outline: none; border-color: var(--w); background: #fff }
+.cl-form input::placeholder { color: var(--g2) }
+.cl-form h3 { margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--line) }
+.cl-form .btn:not(.lg) { margin-top: 18px }
+.link-btn { display: block; margin: 20px auto 0; font: 600 13px var(--sans); color: var(--g1); text-decoration: underline; text-underline-offset: 4px; transition: color .3s }
+.link-btn:hover { color: var(--w) }
+.cl-nota { margin-top: 18px; font-size: 13px; color: var(--g2) }
+.cl-erro { margin-top: 16px; padding: 12px 14px; font-size: 14px; background: rgba(0, 0, 0, .06); border-left: 2px solid var(--w); color: var(--w) }
+.cl-erro:empty { display: none }
+.cl-ok { max-width: 460px; margin-top: 22px; padding: 14px 16px; font-size: 14px; background: var(--w); color: var(--k0) }
+.tabs-auth { max-width: 460px; margin-bottom: 4px }
+.tabs-auth .tab { flex: 1; text-align: center }
+.cl-login[data-mode="esqueci"] .tabs-auth, .cl-login[data-mode="nova"] .tabs-auth { display: none }
+.cl-login form[hidden], .cl-login .cl-ok[hidden], #vLista[hidden], #vAuth[hidden] { display: none }
+
+/* topo */
+.cl-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px }
+.cl-top h1 { margin-bottom: 0; font-size: clamp(2.6rem, 8vw, 5rem); word-break: break-word }
+.cl-top-btns { display: flex; gap: 10px; flex-wrap: wrap }
+
+/* abas */
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line2); margin-bottom: 26px }
+.tab { padding: 14px 22px; font: 700 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--g2); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .3s, border-color .3s }
+.tab b { margin-left: 8px; font-weight: 700; color: var(--g2) }
+.tab:hover { color: var(--w) }
+.tab.on { color: var(--w); border-bottom-color: var(--w) }
+.cl-aviso { margin-bottom: 20px; padding: 14px 16px; background: var(--k1); border: 1px solid var(--line2); font-size: 14px }
+
+/* cards de agendamento */
+.cards { display: grid; gap: 14px }
+.card { display: grid; grid-template-columns: 96px 1fr auto; gap: clamp(14px, 3vw, 32px); align-items: center; padding: 20px clamp(16px, 3vw, 28px) 20px 20px; background: var(--k1); border: 1px solid var(--line); transition: border-color .3s, transform .3s var(--ease); animation: rise .6s var(--ease) both }
+.card:hover { border-color: var(--line2) }
+.card.past { opacity: .78 }
+.card-date { display: grid; justify-items: center; gap: 2px; padding: 12px 0; background: var(--w); color: var(--k0); text-align: center }
+.card-date small { font: 700 10px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; opacity: .75 }
+.card-date b { font: 400 2.6rem/1 var(--display) }
+.card.past .card-date { background: var(--k2); color: var(--w) }
+.card-main h3 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-bottom: 8px }
+.card-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; color: var(--g1); font-size: 14px }
+.chip { display: inline-block; padding: 5px 10px; font: 700 10px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; border: 1px solid var(--line2) }
+.chip.ok { background: var(--w); color: var(--k0); border-color: var(--w) }
+.chip.off { color: var(--g2) }
+.card-act { display: flex; flex-direction: column; gap: 8px; min-width: 150px }
+.card-act .btn { min-height: 42px; padding: 0 18px; font-size: 11px; width: 100% }
+.card-note { grid-column: 2 / -1; font-size: 13px; color: var(--g2); margin-top: -4px }
+.vazio { padding: 48px 24px; text-align: center; border: 1px dashed var(--line2); color: var(--g1) }
+.vazio strong { display: block; font: 400 1.8rem/1.1 var(--display); text-transform: uppercase; color: var(--w); margin-bottom: 8px }
+.vazio .btn { margin-top: 20px }
+
+/* modais */
+.mdl { position: fixed; inset: 0; z-index: 130; display: grid; place-items: center; padding: 16px; visibility: hidden; transition: visibility 0s .35s }
+.mdl.open { visibility: visible; transition-delay: 0s }
+.mdl-bg { position: absolute; inset: 0; background: rgba(10, 10, 10, .6); backdrop-filter: blur(4px); opacity: 0; transition: opacity .35s }
+.mdl.open .mdl-bg { opacity: 1 }
+.mdl-p { position: relative; width: min(100%, 460px); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; background: #FFF; color: #111; padding: clamp(22px, 4vw, 36px); border: 1px solid rgba(0, 0, 0, .2); opacity: 0; transform: translateY(18px); transition: opacity .35s var(--ease), transform .35s var(--ease);
+    --k0: #F5F5F5; --k1: #FFFFFF; --k2: #EBEBEB; --w: #111; --w1: #111; --g1: #4A4A4A; --g2: #6B6B6B; --line: rgba(0,0,0,.12); --line2: rgba(0,0,0,.28); color-scheme: light }
+.mdl.open .mdl-p { opacity: 1; transform: none }
+.mdl-wide { width: min(100%, 560px) }
+.mdl-p h2 { font-size: clamp(2.2rem, 7vw, 3rem); margin-bottom: 10px }
+.mdl-p h3 { font: 700 11px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--g1); margin: 26px 0 12px }
+.mdl-txt { color: var(--g1); font-size: 15px }
+.mdl-btns { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap }
+.mdl-btns .btn { flex: 1 1 140px }
+.mdl-x { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; font-size: 24px; line-height: 1; border: 1px solid var(--line2); display: grid; place-items: center; transition: all .3s }
+.mdl-x:hover { background: #111; color: #fff }
+.opts-sm .opt { padding: 13px 14px }
+.opts-sm .opt strong { font-size: 1.2rem }
+.mdl .opt, .mdl .day, .mdl .time { background: #fff }
+.mdl .opt[aria-checked="true"], .mdl .day[aria-checked="true"], .mdl .time[aria-checked="true"] { background: #111; color: #fff; border-color: #111 }
+.mdl .opt[aria-checked="true"] small, .mdl .day[aria-checked="true"] span { color: #ccc }
+.mdl .time:disabled { color: #aaa; background: transparent }
+.mdl .time.atual:disabled { color: #111; text-decoration: none; border-style: dashed; border-color: #111 }
+.mdl .days { margin: 0 }
+
+/* toast */
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 200; transform: translate(-50%, 30px); max-width: min(92vw, 460px); padding: 14px 20px; background: #111; color: #fff; font-size: 14px; font-weight: 600; border: 1px solid rgba(255, 255, 255, .25); box-shadow: 0 10px 40px rgba(0, 0, 0, .35); opacity: 0; pointer-events: none; transition: opacity .35s, transform .35s var(--ease) }
+.toast.on { opacity: 1; transform: translate(-50%, 0) }
+
+.ft-bot-solo { margin-top: 0; border-top: 0; padding-top: 28px }
+.ft { padding-top: 0 }
+.ft .ft-bot { margin-top: 0 }
+
+@media (max-width: 960px) {
+    .card { grid-template-columns: 78px 1fr }
+    .card-act { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; min-width: 0 }
+    .card-act .btn { flex: 1 1 calc(50% - 8px); width: auto }
+    .card-note { grid-column: 1 / -1; margin-top: 0 }
+    .card-date b { font-size: 2.1rem }
+    .cl-top-btns { width: 100% }
+    .cl-top-btns .btn { flex: 1 }
+    .tab { flex: 1; padding: 14px 8px; text-align: center }
+}
+
+/* cabeçalho sólido nesta página (fundo claro por trás) */
+.hd.on { background: #161616 }
+@media (max-width: 960px) { .cl-top-btns .btn:first-child { flex: 1 1 100% } }
+.card-prof { color: var(--g1); font-size: 14px; margin: -2px 0 8px }
+
+@media (max-width: 640px) {
+    .cl {
+        padding-top: calc(64px + 28px + env(safe-area-inset-top));
+        padding-bottom: calc(56px + env(safe-area-inset-bottom));
+    }
+
+    .cl-wrap {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    .cl h1 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+    }
+
+    .cl-top {
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .cl-top h1 {
+        font-size: clamp(2.5rem, 12vw, 3.7rem);
+    }
+
+    .cl-top-btns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .cl-top-btns .btn,
+    .cl-top-btns .btn:first-child {
+        min-width: 0;
+        min-height: 46px;
+        padding: 0 10px;
+        font-size: 10px;
+        letter-spacing: .07em;
+    }
+
+    .cl-top-btns .btn:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .tabs {
+        margin-bottom: 20px;
+    }
+
+    .tab {
+        min-width: 0;
+        padding: 14px 8px;
+        font-size: 11px;
+        letter-spacing: .08em;
+    }
+
+    .card {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .card-date {
+        width: 64px;
+        padding: 10px 0;
+    }
+
+    .card-date b {
+        font-size: 1.9rem;
+    }
+
+    .card-main {
+        min-width: 0;
+    }
+
+    .card-main h3 {
+        overflow-wrap: anywhere;
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+    }
+
+    .card-meta {
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .card-act {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .card-act .btn {
+        min-width: 0;
+        min-height: 44px;
+        padding: 0 8px;
+        font-size: 10px;
+        letter-spacing: .06em;
+        overflow-wrap: anywhere;
+    }
+
+    .card-note {
+        grid-column: 1 / -1;
+    }
+
+    .vazio {
+        padding: 32px 16px;
+    }
+
+    .mdl {
+        padding: 10px;
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .mdl-p {
+        max-height: calc(100vh - 20px);
+        max-height: calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+        padding: 24px 18px;
+    }
+
+    .mdl-btns {
+        gap: 8px;
+    }
+
+    .mdl-btns .btn {
+        flex-basis: 100%;
+    }
+}
+
+/* ==========================================================================
+   LIQUID GLASS — área do cliente (camada de refinamento, só CSS)
+   Cards e formulários seguem sólidos; vidro em header, abas, modais e toast.
+   ========================================================================== */
+.hd.on { background: rgba(22, 22, 22, .82) }  /* vidro com opacidade extra: há conteúdo claro atrás */
+
+.cl h1 { font-size: clamp(2.8rem, 9vw, 5.6rem); line-height: .96 }
+.cl-sub { line-height: 1.75; margin-bottom: 40px }
+
+/* formulários */
+.cl-form input[type="text"], .cl-form input[type="tel"], .cl-form input[type="email"], .cl-form input[type="password"], .mdl input[type="date"] {
+    border-radius: 14px; border-color: rgba(0, 0, 0, .14);
+    transition: border-color .25s var(--out), box-shadow .25s var(--out), background .25s var(--out);
+}
+.cl-form input:focus, .mdl input[type="date"]:focus { border-color: rgba(0, 0, 0, .55); box-shadow: 0 0 0 4px rgba(0, 0, 0, .06) }
+.cl-erro { border-radius: 12px; border-left-width: 0; background: rgba(0, 0, 0, .05) }
+.cl-ok { border-radius: 14px }
+.cl-aviso { border-radius: var(--r-m); border-color: rgba(0, 0, 0, .1) }
+.link-btn { transition: color .25s var(--out) }
+
+/* abas → controle segmentado (padrão iOS), mesmas classes/estados */
+.tabs { gap: 4px; padding: 4px; width: fit-content; max-width: 100%; border-bottom: 0; border-radius: 999px; background: rgba(0, 0, 0, .06); margin-bottom: 28px }
+.tab { border-bottom: 0; margin-bottom: 0; border-radius: 999px; padding: 12px 22px; transition: color .25s var(--out), background .25s var(--out), box-shadow .25s var(--out) }
+.tab:hover:not(.on) { background: rgba(0, 0, 0, .04) }
+.tab.on { background: #fff; color: #111; box-shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 6px 16px -6px rgba(0, 0, 0, .16) }
+.tab.on b { color: #555 }
+.tabs-auth { width: 100%; max-width: 460px }
+
+/* cards de agendamento: superfície limpa, quase sem sombra */
+.card { border-radius: 20px; border-color: rgba(0, 0, 0, .08); box-shadow: 0 1px 2px rgba(0, 0, 0, .03); transition: border-color .25s var(--out), box-shadow .25s var(--out) }
+.card:hover { border-color: rgba(0, 0, 0, .16); box-shadow: 0 14px 34px -22px rgba(0, 0, 0, .22) }
+.card-date { border-radius: 14px }
+.chip { border-radius: 999px; padding: 6px 12px }
+.vazio { border-radius: 20px; border-color: rgba(0, 0, 0, .16) }
+
+/* modais: camada de vidro elevada */
+.mdl-bg { background: rgba(10, 10, 10, .42); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: opacity .3s var(--out) }
+.mdl-p {
+    --gl: 0, 0, 0;
+    background: rgba(255, 255, 255, .82);
+    -webkit-backdrop-filter: blur(32px) saturate(180%); backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, .6); border-radius: 26px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 30px 80px -24px rgba(0, 0, 0, .35);
+    transform: translateY(10px) scale(.97); transition: opacity .3s var(--out), transform .35s var(--out);
+}
+.mdl.open .mdl-p { transform: none }
+.mdl-x { border-radius: 50%; border-color: rgba(0, 0, 0, .12); background: rgba(0, 0, 0, .04); transition: background .25s var(--out), color .25s var(--out), transform .2s var(--out) }
+.mdl-x:active { transform: scale(.94) }
+.mdl .opt, .mdl .day, .mdl .time { border-radius: 14px; border-color: rgba(0, 0, 0, .12) }
+.mdl .opt:hover, .mdl .day:hover, .mdl .time:hover:not(:disabled) { border-color: rgba(0, 0, 0, .4); background: #fff }
+.mdl .time:disabled { background: transparent; border-color: rgba(0, 0, 0, .06) }
+
+/* toast */
+.toast {
+    border-radius: 18px; background: rgba(20, 20, 20, .78); border-color: rgba(255, 255, 255, .14);
+    -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 18px 50px -18px rgba(0, 0, 0, .5);
+    transition: opacity .3s var(--out), transform .35s var(--out);
+}
+
+@media (max-width: 960px) { .tabs { width: 100% } }
+@media (max-width: 640px) { .tab { padding: 12px 8px } .mdl-p { border-radius: 22px } }
+
+
+/* ==========================================================================
+   MARGEM AUTO — área do cliente em grafite (sobrescreve os trechos claros acima)
+   ========================================================================== */
+.hd.on { background: rgba(16, 17, 18, .82) }
+
+.cl-form input[type="text"], .cl-form input[type="tel"], .cl-form input[type="email"], .cl-form input[type="password"], .mdl input[type="date"] {
+    border-color: rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .04); color: var(--w); color-scheme: dark;
+}
+.cl-form input:focus, .mdl input[type="date"]:focus { background: rgba(255, 255, 255, .07); border-color: rgba(255, 255, 255, .5); box-shadow: 0 0 0 4px rgba(255, 255, 255, .08) }
+.cl-erro { background: rgba(255, 255, 255, .06) }
+.cl-aviso { border-color: rgba(255, 255, 255, .12) }
+
+.tabs { background: rgba(255, 255, 255, .06) }
+.tab:hover:not(.on) { background: rgba(255, 255, 255, .05) }
+.tab.on { background: #fff; color: #101112; box-shadow: none }
+.tab.on b { color: #4A4F55 }
+
+.card { border-color: rgba(255, 255, 255, .08); box-shadow: none }
+.card:hover { border-color: rgba(255, 255, 255, .22); box-shadow: 0 14px 34px -22px rgba(0, 0, 0, .7) }
+.vazio { border-color: rgba(255, 255, 255, .16) }
+
+.mdl-p {
+    --k0: #17191B; --k1: #1E2124; --k2: #272A2E; --w: #FFFFFF; --w1: #F2F3F4; --g1: #B4B8BC; --g2: #868B91;
+    --line: rgba(255, 255, 255, .10); --line2: rgba(255, 255, 255, .22); --gl: 255, 255, 255; color-scheme: dark;
+    color: #fff; background: rgba(23, 25, 27, .94); border-color: rgba(255, 255, 255, .12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 30px 80px -24px rgba(0, 0, 0, .75);
+}
+.mdl-x { border-color: rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05) }
+.mdl-x:hover { background: #fff; color: #101112 }
+.mdl .opt, .mdl .day, .mdl .time { background: rgba(255, 255, 255, .04); border-color: rgba(255, 255, 255, .14); color: #fff }
+.mdl .opt:hover, .mdl .day:hover, .mdl .time:hover:not(:disabled) { border-color: rgba(255, 255, 255, .45); background: rgba(255, 255, 255, .08) }
+.mdl .opt[aria-checked="true"], .mdl .day[aria-checked="true"], .mdl .time[aria-checked="true"] { background: #fff; color: #101112; border-color: #fff }
+.mdl .opt[aria-checked="true"] small, .mdl .day[aria-checked="true"] span { color: #4A4F55 }
+.mdl .time:disabled { color: #5D6369; background: transparent; border-color: rgba(255, 255, 255, .06) }
+.mdl .time.atual:disabled { color: #fff; border-color: #fff }
+.toast { background: rgba(23, 25, 27, .92) }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Administração</title>
+
+    <link rel="stylesheet" href="../admin.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Área administrativa</h1>
+
+        <form id="formLogin">
+
+            <label for="email">E-mail</label>
+
+            <input
+                type="email"
+                id="email"
+                required
+            >
+
+            <label for="senha">Senha</label>
+
+            <input
+                type="password"
+                id="senha"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../admin-config.js"></script>
+    <script src="login.js"></script>
+
+</body>
+
+</html>

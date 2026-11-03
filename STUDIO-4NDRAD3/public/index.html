@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MARGEM AUTO | Estética automotiva</title>
+<meta name="description" content="MARGEM AUTO: estética automotiva premium. Lavagem, polimento, proteção de pintura e coating cerâmico com horário marcado. Agende online.">
+<meta name="theme-color" content="#101112">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<a class="skip" href="#servicos">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header id="hd" class="hd">
+  <a href="#inicio" class="brand" aria-label="MARGEM AUTO - início"><img src="../assets/logo.svg" alt="MARGEM AUTO" width="330" height="64"></a>
+  <nav id="nav" class="nav" aria-label="Principal">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+    <a href="cliente.html">Meus horários</a>
+    <button type="button" class="btn nav-cta" data-open>Agendar</button>
+  </nav>
+  <button id="burger" class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><i></i><i></i></button>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="inicio" class="hero hero-full">
+
+    <div class="hero-bg" id="heroImg" role="img" aria-label="Foto de veículo em detalhamento">
+        
+    </div>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-light" aria-hidden="true"></div>
+
+    <div class="hero-light-reflection" aria-hidden="true"></div>
+
+    <div class="wrap hero-content">
+
+        <div class="hero-info">
+
+            <div class="hero-tag">
+                MARGEM AUTO
+            </div>
+
+            <h1>
+                <span>Seu carro merece mais.</span>
+                <span>Seu negócio também.</span>
+            </h1>
+
+            <p>
+                Gerencie agendamentos, organize clientes e acompanhe o desempenho do seu negócio em um só lugar.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn solid lg" data-open>
+                    Agendar horário
+                </button>
+            </div>
+
+        </div>
+
+   
+
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="sec light">
+  <div class="wrap">
+    <header class="sec-h rv">
+      <p class="eyebrow">Serviços</p>
+      <h2>Cuidado de showroom<br>para o seu carro.</h2>
+    </header>
+    <ul class="svc" id="svcList"></ul>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="sec about">
+  <div class="wrap about-grid">
+    <div class="about-txt rv">
+      <p class="eyebrow">A MARGEM AUTO</p>
+      <h2>Mais que lavagem.<br>Detalhe em cada etapa.</h2>
+      <p>Na MARGEM AUTO, cada veículo passa por um processo técnico: da descontaminação da pintura à proteção final, com produtos profissionais e cada etapa registrada.</p>
+      <p>Atendimento com hora marcada, histórico de serviços por veículo e valor combinado antes de começar.</p>
+      <ul class="pillars">
+        <li><strong>Precisão</strong><span>Processo técnico, sem pressa.</span></li>
+        <li><strong>Proteção</strong><span>Acabamento que dura.</span></li>
+        <li><strong>Hora marcada</strong><span>Agende online, sem espera.</span></li>
+      </ul>
+      <button type="button" class="btn solid" data-open>Agendar agora <span class="arr" aria-hidden="true">→</span></button>
+    </div>
+    <div class="about-art">
+      <figure class="ph a1 rv" data-img="sobre-1"></figure>
+      <figure class="ph a2 rv" data-img="sobre-2"></figure>
+      <div class="badge rv" aria-hidden="true"><img src="../assets/logo.svg" alt="" width="330" height="64"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="sec gal light">
+  <div class="wrap">
+    <header class="sec-h rv">
+      <p class="eyebrow">Galeria</p>
+      <h2>Nosso trabalho<br>em detalhes.</h2>
+    </header>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="rv">Garanta<br>seu horário.</h2>
+    <div class="cta-r rv">
+      <p>Escolha o serviço, o dia e o horário disponível. A confirmação sai na hora.</p>
+      <button type="button" class="btn solid lg" data-open>Agendar agora <span class="arr" aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="sec light">
+  <div class="wrap">
+    <header class="sec-h rv">
+      <p class="eyebrow">Contato</p>
+      <h2>Fale com<br>a gente.</h2>
+    </header>
+    <div class="ct-grid">
+      <dl class="ct rv">
+        <div><dt>Endereço</dt><dd id="cEnd"></dd></div>
+        <div><dt>Atendimento</dt><dd id="cHor"></dd></div>
+      </dl>
+      <div class="ct-links rv">
+        <a class="link-row" id="lWa" target="_blank" rel="noopener"><span>WhatsApp</span><i aria-hidden="true">↗</i></a>
+        <a class="link-row" id="lIg" target="_blank" rel="noopener"><span>Instagram</span><i aria-hidden="true">↗</i></a>
+        <a class="link-row" id="lMp" target="_blank" rel="noopener"><span>Ver no Google Maps</span><i aria-hidden="true">↗</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap ft-grid">
+    <div class="ft-brand">
+      <img src="../assets/logo.svg" alt="MARGEM AUTO" width="330" height="64" loading="lazy">
+    </div>
+    <nav class="ft-nav" aria-label="Rodapé">
+      <a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#contato">Contato</a><a href="cliente.html">Área do cliente</a>
+    </nav>
+    <div class="ft-info">
+      <p id="fEnd"></p>
+      <p id="fHor"></p>
+      <p class="ft-soc"><a id="fWa" target="_blank" rel="noopener">WhatsApp</a><a id="fIg" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+  <div class="wrap ft-bot">
+    <small>© <span id="yr"></span> MARGEM AUTO. Todos os direitos reservados.</small>
+    <small><a href="../admin/login/login.html">Área administrativa</a></small>
+  </div>
+</footer>
+
+<!-- CTA FIXO MOBILE -->
+<button type="button" id="fab" class="fab" data-open aria-label="Agendar agora">Agendar agora <span aria-hidden="true">→</span></button>
+
+<!-- LIGHTBOX -->
+<div id="lb" class="lb" aria-hidden="true" role="dialog" aria-label="Foto ampliada">
+  <button type="button" class="lb-x" data-lb-close aria-label="Fechar">×</button>
+  <button type="button" class="lb-n prev" data-lb="-1" aria-label="Anterior">‹</button>
+  <img id="lbImg" alt="">
+  <button type="button" class="lb-n next" data-lb="1" aria-label="Próxima">›</button>
+</div>
+
+<!-- AGENDAMENTO -->
+<aside id="dw" class="dw" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Agendar horário">
+  <div class="dw-bg" data-close></div>
+  <div class="dw-p">
+    <header class="dw-h">
+      <img src="../assets/logo.svg" alt="MARGEM AUTO" width="330" height="64">
+      <button type="button" class="dw-x" data-close aria-label="Fechar">×</button>
+    </header>
+
+    <div class="prog" id="prog" aria-hidden="true">
+      <div class="prog-bar"><i id="progBar"></i></div>
+      <ol>
+        <li data-s="1">Serviço</li><li data-s="2">Data</li><li data-s="3">Horário</li><li data-s="4">Dados</li><li data-s="5">Confirmar</li>
+      </ol>
+    </div>
+
+    <!-- FORMULÁRIO (mesmos IDs do sistema original; a lógica continua em agendamento.js) -->
+    <form id="formAgendamento" novalidate>
+      <div class="steps">
+
+        <section class="step" data-step="1">
+          <h3>Qual serviço?</h3>
+          <div class="opts" id="optServ" role="radiogroup" aria-label="Serviço"></div>
+          <select id="procedimento" class="vh" tabindex="-1" aria-hidden="true" required>
+            <option value="">Selecione</option>
+          </select>
+        </section>
+
+
+        <section class="step" data-step="2">
+          <h3>Qual dia?</h3>
+          <div class="days" id="optDias" role="radiogroup" aria-label="Data"></div>
+          <label class="alt" for="data">Ou escolha outra data</label>
+          <input type="date" id="data" required>
+        </section>
+
+        <section class="step" data-step="3">
+          <h3>Qual horário?</h3>
+          <p class="hint" id="horHint"></p>
+          <div class="times" id="optHor" role="radiogroup" aria-label="Horário"></div>
+          <select id="horario" class="vh" tabindex="-1" aria-hidden="true" required>
+            <option value="">Selecione uma data primeiro</option>
+          </select>
+        </section>
+
+        <section class="step" data-step="4">
+          <h3>Seus dados</h3>
+          <p class="hint" id="contaAviso" hidden></p>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome" autocomplete="name" required>
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" required>
+        </section>
+
+        <section class="step" data-step="5">
+          <h3>Confirme seu agendamento</h3>
+          <dl class="sum">
+            <div><dt>Serviço</dt><dd id="sumServ">-</dd></div>
+            <div><dt>Data</dt><dd id="sumData">-</dd></div>
+            <div><dt>Horário</dt><dd id="sumHor">-</dd></div>
+             <div><dt>Valor</dt><dd id="sumValor">-</dd></div>
+            <div><dt>Nome</dt><dd id="sumNome">-</dd></div>
+            <div><dt>WhatsApp</dt><dd id="sumWa">-</dd></div>
+          </dl>
+        </section>
+      </div>
+
+      <p id="stepErr" class="erro" role="alert"></p>
+      <div class="nav-btns">
+        <button type="button" id="btnVoltar" class="btn ghost">Voltar</button>
+        <button type="button" id="btnProx" class="btn solid">Continuar <span class="arr" aria-hidden="true">→</span></button>
+        <button type="submit" id="btnAgendar" class="btn solid">Confirmar agendamento</button>
+      </div>
+    </form>
+
+    <!-- LOGIN / CADASTRO: aparece só ao confirmar sem estar logado (lógica em agendamento.js) -->
+    <section id="authGate" class="gate" hidden aria-labelledby="gateTitulo">
+      <h3 id="gateTitulo">Entre para confirmar</h3>
+      <p class="hint" id="gateSub">Para finalizar, entre na sua conta ou crie uma. Seu serviço, dia e horário continuam salvos.</p>
+
+      <div class="gate-tabs" role="tablist" aria-label="Acesso">
+        <button type="button" role="tab" class="gate-tab on" data-gate="entrar" aria-selected="true">Entrar</button>
+        <button type="button" role="tab" class="gate-tab" data-gate="criar" aria-selected="false">Criar conta</button>
+      </div>
+
+      <form id="gateEntrar" data-gf="entrar" novalidate>
+        <label for="gEmail">E-mail</label>
+        <input type="email" id="gEmail" placeholder="voce@email.com" autocomplete="email" inputmode="email">
+        <label for="gSenha">Senha</label>
+        <input type="password" id="gSenha" placeholder="Sua senha" autocomplete="current-password">
+        <p class="erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid gate-go">Entrar e confirmar</button>
+        <button type="button" class="gate-link" id="gateEsqueci">Esqueci minha senha</button>
+      </form>
+
+      <form id="gateCriar" data-gf="criar" novalidate hidden>
+        <label for="gcNome">Nome</label>
+        <input type="text" id="gcNome" placeholder="Seu nome" autocomplete="name">
+        <label for="gcWa">WhatsApp</label>
+        <input type="tel" id="gcWa" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel">
+        <label for="gcEmail">E-mail</label>
+        <input type="email" id="gcEmail" placeholder="voce@email.com" autocomplete="email" inputmode="email">
+        <label for="gcSenha">Senha</label>
+        <input type="password" id="gcSenha" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8">
+        <p class="erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid gate-go">Criar conta e confirmar</button>
+      </form>
+
+      <p class="gate-ok" id="gateOk" role="status" hidden></p>
+      <button type="button" class="btn ghost gate-back" id="gateVoltar">Voltar ao resumo</button>
+    </section>
+
+    <!-- CONFIRMAÇÃO -->
+    <section id="confirmacao" class="confirmacao" style="display: none;">
+      <div class="icone-sucesso" aria-hidden="true">✓</div>
+      <h2>Horário reservado.</h2>
+      <p class="texto-confirmacao">Seu agendamento foi confirmado com sucesso.</p>
+      <p class="texto-confirmacao" id="confirmacaoConta" hidden></p>
+      <div class="dados-agendamento">
+        <div><span>Nome</span> <strong id="confirmacaoNome">-</strong></div>
+        <div><span>Serviço</span> <strong id="confirmacaoProcedimento">-</strong></div>
+        <div><span>Data</span> <strong id="confirmacaoData">-</strong></div>
+        <div><span>Horário</span> <strong id="confirmacaoHorario">-</strong></div>
+         <div><span>Valor</span> <strong id="confirmacaoValor">-</strong></div>
+      </div>
+      <div class="whatsapp-box">
+        <strong>Quer falar com a MARGEM AUTO?</strong>
+        <p>Chame no WhatsApp para tirar dúvidas ou confirmar informações.</p>
+        <a id="btnWhatsApp" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp btn solid">Falar pelo WhatsApp</a>
+      </div>
+      <button id="novoAgendamento" class="btn-novo btn ghost" type="button">Fazer outro agendamento</button>
+      <a class="btn ghost ver-meus" href="cliente.html">Ver meus agendamentos</a>
+    </section>
+
+    <p id="mensagem"></p>
+  </div>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config-site.js"></script>
+<script src="agendamento.js"></script>
+<script src="landing.js"></script>
+</body>
+</html>

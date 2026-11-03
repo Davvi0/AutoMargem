@@ -1,0 +1,2179 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Manrope:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    --background: #EFF4F5;
+    --surface: #FFFFFF;
+    --border: #D8E3E7;
+
+    --text: #293B44;
+    --muted: #627A84;
+
+    --green: #176F8D;
+    --green-bg: #E1F1F6;
+    --sidebar: #1C2A32;
+
+    --gold: #537985;
+
+    --orange: #8A5C23;
+    --orange-bg: #F5ECDD;
+
+    --ok: #2D8A5E;
+    --ok-bg: #E5F4EB;
+    --red: #a14a4a;
+    --red-bg: #f9eeee;
+}
+
+body {
+    font-family: Manrope, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+::selection {
+    background: var(--green);
+    color: #FFFFFF;
+}
+
+:focus-visible {
+    outline: 2px solid #81CEE8;
+    outline-offset: 3px;
+}
+
+
+/* =================================
+   LOGIN (sem card antes; agora com o mesmo visual da marca)
+================================= */
+
+body:has(#formLogin) {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+body:has(#formLogin) main {
+    width: 100%;
+    max-width: 360px;
+    padding: 36px 30px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+}
+
+body:has(#formLogin) h1 {
+    margin-bottom: 26px;
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--green);
+    text-align: center;
+}
+
+#formLogin label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+#formLogin input {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 18px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--surface);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+}
+
+#formLogin input:focus {
+    border-color: var(--gold);
+}
+
+#formLogin button {
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 9px;
+    background: var(--green);
+    color: var(--background);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#formLogin button:hover {
+    opacity: .9;
+}
+
+body:has(#formLogin) #mensagem {
+    margin-top: 14px;
+    text-align: center;
+    color: var(--red);
+    font-size: 12px;
+}
+
+
+/* =================================
+   LAYOUT
+================================= */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =================================
+   SIDEBAR — estreita, verde, só ícones
+================================= */
+
+.sidebar {
+    width: 88px;
+    min-height: 100vh;
+
+    background: var(--sidebar);
+
+    padding: 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 22px;
+    color: #81CEE8;
+}
+
+.logo::before {
+    content: "4";
+}
+
+.logo,
+.logo span {
+    font-size: 0;
+}
+
+.logo::before {
+    font-size: 22px;
+}
+
+
+nav {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+nav a {
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: rgba(228, 240, 244, .58);
+
+    font-size: 0;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background .2s ease, color .2s ease;
+}
+
+nav a span {
+    width: auto;
+    height: auto;
+    background: none;
+    color: inherit;
+    font-size: 19px;
+}
+
+nav a.active {
+    background: rgba(129, 206, 232, .16);
+    color: #F5F8F9;
+}
+
+nav a:not(.active):hover {
+    background: rgba(129, 206, 232, .1);
+    color: #F5F8F9;
+    transform: none;
+}
+
+
+/* =================================
+   PARTE INFERIOR / SAIR
+================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.sidebar-bottom button {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 14px;
+
+    background: transparent;
+    color: rgba(228, 240, 244, .58);
+
+    font-size: 0;
+
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.sidebar-bottom button::before {
+    content: "↪";
+    font-size: 19px;
+}
+
+.sidebar-bottom button:hover {
+    background: rgba(161, 74, 74, .25);
+    color: #fff;
+}
+
+
+/* =================================
+   CONTEÚDO
+================================= */
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 48px 60px;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-weight: 400;
+    font-size: 34px;
+    color: var(--green);
+}
+
+.topbar p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.admin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin strong {
+    display: block;
+    font-size: 13px;
+}
+
+.admin small {
+    display: block;
+    margin-top: 2px;
+    color: var(--green);
+    font-size: 11px;
+}
+
+
+/* =================================
+   DATA — barra em pílula
+================================= */
+
+.agenda-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+    padding: 16px 22px;
+
+    border: 1px solid var(--border);
+    border-radius: 99px;
+
+    background: var(--surface);
+}
+
+.date-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.date-navigation button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--background);
+    color: var(--green);
+    font-size: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.date-navigation button:hover {
+    background: var(--green-bg);
+}
+
+.current-date {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.current-date strong {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--green);
+    text-transform: capitalize;
+}
+
+.current-date span {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.btnHoje {
+    padding: 9px 18px;
+    border: 1px solid var(--green);
+    border-radius: 99px;
+    background: none;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btnHoje:hover {
+    background: var(--green);
+    color: var(--background);
+}
+
+
+/* =================================
+   RESUMO — primeiro card em destaque
+================================= */
+
+.summary {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    flex: 1;
+    padding: 20px 22px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.summary-card:first-child {
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.summary-card:first-child span,
+.summary-card:first-child strong {
+    color: var(--background);
+}
+
+.summary-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.summary-card strong {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+/* =================================
+   AGENDA — grade de cards
+================================= */
+
+.agenda {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.agenda-title {
+    padding: 0;
+    margin-bottom: 16px;
+    border-bottom: none;
+}
+
+.agenda-title h2 {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--green);
+    text-transform: capitalize;
+}
+
+.agenda-title span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+#listaAgendamentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+
+/* =================================
+   CARD DE AGENDAMENTO
+================================= */
+
+.agendamento {
+    display: block;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--green);
+    border-radius: 16px;
+    background: var(--surface);
+    transition: box-shadow .2s ease;
+}
+
+.agendamento:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .07);
+}
+
+.agendamento:has(.status-faltou) {
+    border-left-color: var(--orange);
+}
+
+.agendamento:has(.status-cancelado) {
+    border-left-color: var(--red);
+}
+
+.horario {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 3px 11px;
+    border-radius: 99px;
+    background: var(--green-bg);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cliente-nome {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.info {
+    margin: 2px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.info strong {
+    color: var(--text);
+    font-weight: 500;
+}
+
+
+/* STATUS */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-confirmado,
+.status-compareceu {
+    background: var(--ok-bg);
+    color: var(--ok);
+}
+
+.status-faltou {
+    background: var(--orange-bg);
+    color: var(--orange);
+}
+
+.status-cancelado {
+    background: var(--red-bg);
+    color: var(--red);
+}
+
+
+/* =================================
+   BOTÕES DO CARD
+================================= */
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.botoes button {
+    padding: 7px 11px;
+    border: none;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.botoes button:hover {
+    transform: translateY(-1px);
+    opacity: .85;
+}
+
+.btn-compareceu {
+    background: var(--ok-bg);
+    color: var(--ok);
+}
+
+.btn-faltou {
+    background: var(--orange-bg);
+    color: var(--orange);
+}
+
+.btn-cancelar {
+    background: var(--red-bg);
+    color: var(--red);
+}
+
+.btn-lembrete {
+    background: #EFEFEF !important;
+    color: var(--gold);
+    border: 1px solid #E2E2E2 !important;
+}
+
+.btn-lembrete:hover {
+    background: #E4E4E4 !important;
+}
+
+
+/* =================================
+   LOADING / VAZIO
+================================= */
+
+.loading,
+.empty {
+    grid-column: 1 / -1;
+    padding: 50px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =================================
+   HORÁRIO LIVRE
+================================= */
+
+.horario-livre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left-style: dashed;
+    border-left-color: var(--border);
+    background: var(--background);
+}
+
+.horario-livre .horario {
+    background: var(--surface);
+    color: #B5B5B5;
+}
+
+.horario-livre .cliente-nome {
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #B5B5B5;
+    margin: 0;
+}
+
+.horario-livre .info {
+    color: #C8C8C8;
+}
+
+.btn-agendar {
+    margin-top: 0;
+    padding: 8px 14px;
+    border: 1px solid var(--green);
+    border-radius: 99px;
+    background: none;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-agendar:hover {
+    background: var(--green);
+    color: var(--background);
+}
+
+
+/* =================================
+   MODAL
+================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 32, 27, .45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 430px;
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 25px 70px rgba(20, 32, 27, .18);
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-weight: 400;
+    font-size: 21px;
+    color: var(--green);
+}
+
+.modal-header p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fechar-modal {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: var(--background);
+    color: var(--green);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#formAgendamento label,
+#formValor label,
+#formDespesa label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#formAgendamento input,
+#formValor input,
+#formDespesa input {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 17px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+}
+
+#formAgendamento input:focus,
+#formValor input:focus,
+#formDespesa input:focus {
+    border-color: var(--gold);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    height: 44px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-modal-cancelar {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+}
+
+.btn-modal-cancelar:hover {
+    background: var(--background);
+}
+
+.btn-modal-agendar {
+    border: none;
+    background: var(--green);
+    color: var(--background);
+}
+
+.btn-modal-agendar:hover {
+    opacity: .9;
+}
+
+
+/* =================================
+   NAVEGAÇÃO / PÁGINAS
+================================= */
+
+.menu-item {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagina {
+    display: none;
+}
+
+.pagina.ativa {
+    display: block;
+}
+
+
+/* =================================
+   REATIVAÇÃO — mesma linguagem de cards
+================================= */
+
+#listaReativacao,
+#listaEntradas,
+#listaDespesas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.cliente-reativacao {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    transition: box-shadow .2s ease;
+}
+
+.cliente-reativacao:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .07);
+}
+
+.cliente-reativacao-info {
+    min-width: 0;
+}
+
+.cliente-reativacao-nome {
+    margin-bottom: 5px;
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text);
+}
+
+.cliente-reativacao-procedimento {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.cliente-reativacao-dias {
+    margin-top: 8px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.btn-reativar {
+    flex-shrink: 0;
+    padding: 9px 15px;
+    border: 1px solid var(--green);
+    border-radius: 99px;
+    background: none;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-reativar:hover {
+    background: var(--green);
+    color: var(--background);
+}
+
+
+/* =================================
+   AÇÕES DA BARRA DE DATA (Hoje / Imprimir / Nova despesa)
+================================= */
+
+.agenda-header-acoes {
+    display: flex;
+    gap: 10px;
+}
+
+.btnImprimir {
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btnImprimir:hover {
+    background: var(--background);
+    border-color: var(--gold);
+}
+
+
+/* =================================
+   VALOR NO CARD DO AGENDAMENTO
+================================= */
+
+.info-valor {
+    font-weight: 500;
+}
+
+.btn-valor {
+    background: #EFEFEF;
+    color: var(--gold);
+}
+
+.btn-valor:hover {
+    background: #E4E4E4;
+}
+
+
+/* =================================
+   FINANCEIRO — entradas e despesas
+================================= */
+
+.valor-lancamento {
+    flex-shrink: 0;
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+    font-size: 17px;
+}
+
+.valor-positivo {
+    color: var(--ok);
+}
+
+.valor-negativo {
+    color: var(--red);
+}
+
+.despesa-card {
+    border-left-color: var(--red);
+}
+
+.despesa-acoes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.btn-excluir-despesa {
+    padding: 8px 13px;
+    border: 1px solid var(--red-bg);
+    border-radius: 99px;
+    background: var(--red-bg);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-excluir-despesa:hover {
+    background: #f3dede;
+}
+
+/* ============================================
+   RESUMO REATIVAÇÃO
+   ============================================ */
+
+.resumo-reativacao {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.resumo-item {
+    padding: 18px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+}
+
+.resumo-item strong {
+    display: block;
+    font-size: 28px;
+    margin-top: 6px;
+}
+
+.resumo-label {
+    font-size: 14px;
+    color: #777;
+}
+
+/* ============================================
+   ALERTA DE CLIENTE ATRASADO
+   ============================================ */
+
+.cliente-atrasado {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 700px) {
+
+    .resumo-reativacao {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =================================
+   IMPRESSÃO DA AGENDA
+================================= */
+
+#areaImpressao {
+    display: none;
+}
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    #areaImpressao,
+    #areaImpressao * {
+        visibility: visible;
+    }
+
+    #areaImpressao {
+        display: block;
+        position: absolute;
+        inset: 0;
+        padding: 24px;
+    }
+
+    #areaImpressao h1 {
+        font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+        font-size: 22px;
+        color: #111111;
+        margin-bottom: 4px;
+    }
+
+    #areaImpressao h2 {
+        font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 108%; font-weight: 700;
+        font-weight: 400;
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 20px;
+        text-transform: capitalize;
+    }
+
+    #areaImpressao table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+
+    #areaImpressao th,
+    #areaImpressao td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #areaImpressao th {
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #111111;
+    }
+}
+
+
+/* =================================
+   RESPONSIVO
+================================= */
+
+@media (max-width: 800px) {
+
+    .content {
+        min-width: 0;
+        flex: 1;
+        padding: 28px 20px;
+    }
+
+    #listaAgendamentos,
+    #listaReativacao,
+    #listaEntradas,
+    #listaDespesas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        z-index: 10;
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 0;
+        height: 58px;
+        padding: 7px 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .logo {
+        flex: 0 0 24px;
+        text-align: center;
+    }
+
+    .logo::before {
+        font-size: 20px;
+    }
+
+    nav {
+        min-width: 0;
+        margin: 0;
+        flex: 1;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 3px;
+    }
+
+    nav a {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    nav a span {
+        font-size: 17px;
+    }
+
+    .sidebar-bottom {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar-bottom button {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 20px 12px 32px;
+    }
+
+    #paginaAgenda,
+    #paginaAgenda .agenda,
+    #listaAgendamentos {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #listaAgendamentos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #abasProfissionais {
+        justify-content: center;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .topbar h1 {
+        font-size: 27px;
+    }
+
+    .admin {
+        display: none;
+    }
+
+    .summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .summary-card {
+        min-width: 0;
+        padding: 15px 14px;
+    }
+
+    .summary-card span {
+        min-height: 2.4em;
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .summary-card strong {
+        font-size: 25px;
+    }
+
+    .agenda-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .date-navigation {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .current-date {
+        min-width: 0;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+    }
+
+    .agenda-header-acoes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .agenda-header-acoes button,
+    .agenda-header > .btnHoje {
+        min-height: 42px;
+        text-align: center;
+    }
+
+    .date-navigation button,
+    .botoes button,
+    .btn-agendar,
+    .btn-reativar,
+    .btn-excluir-despesa {
+        min-height: 42px;
+    }
+
+    .agendamento,
+    .cliente-reativacao {
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .botoes {
+        gap: 8px;
+    }
+
+    .botoes button {
+        flex: 1 1 auto;
+    }
+
+    .horario-livre {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .horario-livre .btn-agendar {
+        width: 100%;
+    }
+
+    .modal {
+        align-items: flex-end;
+        padding: 10px;
+    }
+
+    .modal-content {
+        max-height: calc(100vh - 20px);
+        max-height: calc(100dvh - 20px);
+        overflow-y: auto;
+        padding: 22px 18px;
+    }
+
+    .modal-header {
+        margin-bottom: 18px;
+    }
+
+    .cliente-reativacao {
+        flex-direction: column;
+    }
+
+    .btn-reativar {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   DASHBOARD (Visão geral)
+   ========================================================= */
+.dg-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:flex-end}
+.dg-ctl small{color:var(--muted);flex-basis:100%;text-align:right}
+.dg-seg{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:3px}
+.dg-seg button{border:0;background:none;padding:8px 14px;border-radius:999px;font:inherit;font-size:14px;color:var(--muted);cursor:pointer;transition:.2s}
+.dg-seg button.on{background:var(--green);color:#fff}
+.dg-custom{display:flex;gap:6px}.dg-custom[hidden]{display:none}
+.dg-custom input{border:1px solid var(--border);border-radius:8px;padding:7px 10px;font:inherit;background:var(--surface)}
+.dg-btn{border:1px solid var(--green);background:transparent;color:var(--green);padding:9px 18px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
+.dg-btn:hover{background:var(--green);color:#fff}
+.dg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:8px 0 20px}
+.dg-card,.dg-sec{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 14px rgba(0,0,0,.04);animation:dgIn .5s both}
+.dg-card{padding:22px;display:flex;flex-direction:column;gap:6px}
+.dg-card span{color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.dg-card strong{font-size:30px;font-weight:400;color:var(--green)}
+.dg-card small{color:var(--muted)}
+.dg-d{font-size:13px}.dg-d.up{color:var(--green)}.dg-d.down{color:var(--red)}
+.dg-sec{padding:24px;margin-bottom:20px;min-width:0}
+.dg-sec h2{font-size:19px;font-weight:500;margin:0 0 16px;color:var(--text)}
+.dg-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.dg-fin{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+.dg-st{background:var(--background);border-radius:12px;padding:14px}
+.dg-st b{display:block;font-size:22px;font-weight:400;color:var(--green)}.dg-st span{color:var(--muted);font-size:13px}
+.dg-st .neg{color:var(--red)}
+.dg-lin{margin-bottom:12px}.dg-rt{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:5px}
+.dg-rt b{font-weight:500;white-space:nowrap}
+.dg-bar{height:8px;background:var(--green-bg);border-radius:99px;overflow:hidden}
+.dg-bar i{display:block;height:100%;background:var(--green);border-radius:99px;transform-origin:left;animation:dgGrow .8s both}
+.dg-lin.top .dg-bar i{background:var(--gold)}
+.dg-nota{color:var(--muted);font-size:13px;margin:0 0 12px}.dg-nota b{color:var(--text)}
+.dg-ins{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.dg-ins li{background:var(--background);border-radius:10px;padding:12px 14px;font-size:15px}
+.dg-vazio{color:var(--muted);text-align:center;padding:28px 12px}
+.dg-chart{position:relative}.dg-chart svg{width:100%;height:auto;display:block}
+.dg-ax{stroke:var(--border)}.dg-tx{fill:var(--muted);font-size:11px}
+.dg-line{fill:none;stroke:var(--green);stroke-width:2.2}.dg-area{fill:var(--green);opacity:.07}.dg-dot{fill:var(--green)}
+.dg-b0{fill:var(--green)}.dg-b1{fill:var(--gold)}.dg-hit{fill:transparent}.dg-hit:hover{fill:rgba(0,0,0,.05)}
+.dg-tip{display:none;position:absolute;top:8px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,.08);pointer-events:none;min-width:150px}
+.dg-leg{font-size:13px;color:var(--muted);margin:0 0 6px}.dg-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 5px 0 12px}
+.dg-leg .l0{background:var(--green)}.dg-leg .l1{background:var(--gold)}
+@keyframes dgIn{from{opacity:0;transform:translateY(8px)}}@keyframes dgGrow{from{transform:scaleX(0)}}
+@media (max-width:600px){
+    .dg-2{grid-template-columns:1fr}
+    .dg-ctl{justify-content:flex-start}
+    .dg-ctl small{text-align:left}
+    .dg-sec{padding:18px}
+    #paginaDashboard>.topbar{flex-direction:column}
+    #paginaDashboard .dg-ctl{width:100%}
+    #paginaDashboard .dg-seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;border-radius:12px}
+    #paginaDashboard .dg-seg button{min-width:0;padding:9px 6px;font-size:13px}
+}
+@media print{#paginaDashboard{display:none!important}}
+
+
+/* =================================
+   ABAS DE PROFISSIONAIS (Agenda)
+================================= */
+.abas-prof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 10px 28px -24px rgba(17, 17, 17, .28);
+}
+
+.aba-prof {
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.aba-prof span {
+    margin-left: 6px;
+    opacity: .7;
+    font-weight: 600;
+}
+
+.aba-prof:hover {
+    background: var(--background);
+    color: var(--text);
+    border-color: rgba(17, 17, 17, .06);
+    transform: translateY(-1px);
+}
+
+.aba-prof.ativa {
+    background: linear-gradient(135deg, var(--green) 0%, #2a2a2a 100%);
+    color: var(--background);
+    box-shadow: 0 12px 18px -14px rgba(17, 17, 17, .7);
+}
+
+
+/* ==========================================================================
+   LIQUID GLASS — painel admin (camada de refinamento, só CSS)
+   Vidro na navegação (sidebar/barra superior), data, modais. Cards seguem
+   sólidos e limpos. Para desfazer: remova este bloco.
+   ========================================================================== */
+:root {
+    --out: cubic-bezier(.22, .8, .3, 1);
+    --glass-dark: rgba(17, 17, 17, .8);
+    --glass-light: rgba(255, 255, 255, .72);
+    --edge-dark: rgba(255, 255, 255, .10);
+    --blur: blur(22px) saturate(170%);
+}
+
+/* iluminação ambiente quase imperceptível (dá algo para o vidro "refratar") */
+body {
+    background-color: var(--background);
+    background-image:
+        radial-gradient(60% 40% at 85% -8%, rgba(0, 0, 0, .045), transparent 70%),
+        radial-gradient(50% 35% at 5% 105%, rgba(0, 0, 0, .03), transparent 70%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- login ---------- */
+body:has(#formLogin) main {
+    border-radius: 28px; border-color: rgba(255, 255, 255, .7);
+    background: var(--glass-light);
+    -webkit-backdrop-filter: blur(30px) saturate(180%); backdrop-filter: blur(30px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 30px 80px -28px rgba(0, 0, 0, .22);
+    padding: 40px 32px;
+}
+#formLogin input { border-radius: 12px; border-color: rgba(226, 240, 244, .16); transition: border-color .25s var(--out), box-shadow .25s var(--out) }
+#formLogin input:focus { border-color: rgba(129, 206, 232, .72); box-shadow: 0 0 0 4px rgba(129, 206, 232, .14) }
+#formLogin button { border-radius: 12px; transition: transform .2s var(--out), opacity .2s var(--out), box-shadow .25s var(--out); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 10px 24px -12px rgba(0, 0, 0, .5) }
+#formLogin button:hover { opacity: 1; transform: translateY(-1px) }
+#formLogin button:active { transform: scale(.98) }
+
+/* ---------- sidebar: trilho flutuante de vidro ---------- */
+.sidebar {
+    position: sticky; top: 12px; align-self: flex-start;
+    height: calc(100vh - 24px); min-height: 0; margin: 12px 0 12px 12px;
+    border: 1px solid var(--edge-dark); border-radius: 28px;
+    background: var(--glass-dark);
+    -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 18px 50px -20px rgba(0, 0, 0, .45);
+}
+nav a { border-radius: 16px; transition: background .2s var(--out), color .2s var(--out), transform .2s var(--out) }
+nav a.active { background: rgba(129, 206, 232, .16); box-shadow: inset 0 1px 0 rgba(129, 206, 232, .14) }
+nav a:not(.active):hover { background: rgba(129, 206, 232, .1) }
+nav a:active { transform: scale(.94) }
+.sidebar-bottom button { border-radius: 16px; transition: background .2s var(--out), color .2s var(--out), transform .2s var(--out) }
+.sidebar-bottom button:active { transform: scale(.94) }
+
+/* ---------- ritmo e hierarquia ---------- */
+.content { padding: 48px 52px 72px }
+.topbar { margin-bottom: 36px }
+.topbar h1 { font-size: 30px; letter-spacing: .01em }
+.topbar p { margin-top: 8px }
+.summary { gap: 16px; margin-bottom: 36px }
+.agenda-title { margin-bottom: 20px }
+#listaAgendamentos { gap: 18px }
+
+/* ---------- barra de data: pequeno grupo de controles em vidro ---------- */
+.agenda-header {
+    border-color: rgba(0, 0, 0, .06); background: var(--glass-light);
+    -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 10px 30px -18px rgba(0, 0, 0, .18);
+    margin-bottom: 28px;
+}
+.date-navigation button { transition: background .2s var(--out), transform .2s var(--out) }
+.date-navigation button:hover { background: rgba(0, 0, 0, .08) }
+.date-navigation button:active { transform: scale(.92) }
+.btnHoje { border-color: rgba(0, 0, 0, .2); transition: background .2s var(--out), color .2s var(--out), border-color .2s var(--out), transform .2s var(--out) }
+.btnHoje:active { transform: scale(.96) }
+
+/* ---------- cards: superfície sólida, borda sutil, sombra mínima ---------- */
+.summary-card { border-radius: 18px; border-color: rgba(0, 0, 0, .06); box-shadow: 0 1px 2px rgba(0, 0, 0, .03) }
+.agendamento { border-radius: 18px; border-color: rgba(0, 0, 0, .07); transition: box-shadow .25s var(--out), transform .25s var(--out), border-color .25s var(--out) }
+.agendamento:hover { box-shadow: 0 16px 36px -24px rgba(0, 0, 0, .25); border-color: rgba(0, 0, 0, .12) }
+@media (hover: hover) { .agendamento:hover { transform: translateY(-1px) } }
+.resumo-item { border-radius: 16px; border-color: rgba(0, 0, 0, .06) }
+.dg-card, .dg-sec { box-shadow: 0 1px 2px rgba(0, 0, 0, .03) }
+
+/* botões de ação nos cards: feedback físico discreto */
+.botoes button, .btn-agendar, .btn-reativar, .btn-valor, .btn-excluir-despesa, .aba-prof, .dg-btn {
+    transition: background .2s var(--out), color .2s var(--out), border-color .2s var(--out), transform .2s var(--out), opacity .2s var(--out);
+}
+.botoes button:active, .btn-agendar:active, .btn-reativar:active, .btn-valor:active, .btn-excluir-despesa:active, .aba-prof:active, .dg-btn:active { transform: scale(.97) }
+
+/* ---------- modais: camada de vidro elevada ---------- */
+.modal { background: rgba(12, 12, 12, .38); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px) }
+.modal.aberto { animation: lgFade .25s var(--out) both }
+.modal-content {
+    border: 1px solid rgba(255, 255, 255, .6); border-radius: 26px;
+    background: rgba(255, 255, 255, .84);
+    -webkit-backdrop-filter: blur(32px) saturate(180%); backdrop-filter: blur(32px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85), 0 30px 80px -24px rgba(0, 0, 0, .35);
+    padding: 32px;
+}
+.modal.aberto .modal-content { animation: lgPop .32s var(--out) both }
+@keyframes lgFade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes lgPop { from { opacity: 0; transform: translateY(10px) scale(.97) } to { opacity: 1; transform: none } }
+.fechar-modal { border-radius: 50%; background: rgba(0, 0, 0, .05); transition: background .2s var(--out), transform .2s var(--out) }
+.fechar-modal:hover { background: rgba(0, 0, 0, .1) }
+.fechar-modal:active { transform: scale(.92) }
+#formAgendamento input, #formValor input, #formDespesa input { border-radius: 12px; border-color: rgba(0, 0, 0, .12); transition: border-color .25s var(--out), box-shadow .25s var(--out) }
+#formAgendamento input:focus, #formValor input:focus, #formDespesa input:focus { border-color: rgba(0, 0, 0, .5); box-shadow: 0 0 0 4px rgba(0, 0, 0, .06) }
+.modal-buttons button { border-radius: 12px; transition: background .2s var(--out), opacity .2s var(--out), transform .2s var(--out) }
+.modal-buttons button:active { transform: scale(.97) }
+.btn-modal-cancelar { border-color: rgba(0, 0, 0, .12); background: rgba(255, 255, 255, .6) }
+.btn-modal-agendar { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 10px 24px -12px rgba(0, 0, 0, .5) }
+.btn-modal-agendar:hover { opacity: 1; transform: translateY(-1px) }
+
+#formAgendamento select {
+    width: 100%; height: 44px; margin-bottom: 17px; padding: 0 13px;
+    border: 1px solid rgba(0, 0, 0, .12); border-radius: 12px; background: #fff;
+    font-family: inherit; font-size: 13px; color: var(--text); outline: none;
+    transition: border-color .25s var(--out), box-shadow .25s var(--out);
+}
+#formAgendamento select:focus { border-color: rgba(0, 0, 0, .5); box-shadow: 0 0 0 4px rgba(0, 0, 0, .06) }
+
+/* ---------- mobile: barra superior flutuante de vidro ---------- */
+@media (max-width: 600px) {
+    .sidebar {
+        position: sticky; top: 8px; align-self: stretch; z-index: 20;
+        width: auto; height: 58px; margin: 8px 8px 0; border-radius: 22px;
+    }
+    .content { padding: 24px 18px 56px }
+    .topbar { margin-bottom: 28px }
+}
+
+@media print {
+    body { background: #fff !important }
+    .modal, .modal-content, .agenda-header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important }
+}
+
+/* ==========================================================
+   V2 — PREÇOS POR PROFISSIONAL
+   ========================================================== */
+.precos-scroll {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 18px 45px -28px rgba(17, 17, 17, .22);
+}
+
+.tabela-precos {
+    width: 100%;
+    min-width: 920px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+}
+
+.tabela-precos thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.tabela-precos th,
+.tabela-precos td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tabela-precos th {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.tabela-precos tbody tr:hover td {
+    background: rgba(17, 17, 17, .015);
+}
+
+.tabela-precos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.preco-servico-nome {
+    min-width: 210px;
+    padding-right: 20px;
+}
+
+.preco-servico-nome strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.pr-aplicar-todos {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: var(--background);
+    padding: 6px 8px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.pr-aplicar-todos:hover {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+}
+
+.preco-prof-box {
+    min-width: 150px;
+    padding: 2px 0;
+}
+
+.preco-disponivel {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #6d6d6d;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+.preco-disponivel input {
+    accent-color: var(--green);
+    width: 14px;
+    height: 14px;
+    margin: 0;
+}
+
+.preco-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.preco-input-wrap span {
+    color: #777;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.preco-input-wrap input {
+    width: 105px;
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--text);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.preco-input-wrap input:focus {
+    outline: none;
+    border-color: rgba(17, 17, 17, .38);
+    box-shadow: 0 0 0 4px rgba(17, 17, 17, .05);
+}
+
+.preco-input-wrap input:disabled {
+    background: var(--background);
+    color: #a2a2a2;
+    cursor: not-allowed;
+}
+
+.precos-novo,
+.precos-acoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.precos-novo input {
+    flex: 1;
+    min-width: 220px;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+.precos-legenda {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    color: #6f6f6f;
+    font-size: 12px;
+    margin: 8px 0 16px;
+}
+
+.precos-info {
+    margin-top: 12px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   V2 — CLIENTES
+   ========================================================== */
+.clientes-page {
+    width: 100%;
+}
+
+.clientes-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .7);
+    box-shadow: 0 10px 26px -24px rgba(17, 17, 17, .26);
+}
+
+.clientes-toolbar .cliente-busca {
+    flex: 1 1 280px;
+}
+
+.cliente-busca input,
+.cliente-filtro select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 13px;
+    background: #fff;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font: inherit;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.cliente-busca input:focus,
+.cliente-filtro select:focus {
+    outline: none;
+    border-color: rgba(17, 17, 17, .4);
+    box-shadow: 0 0 0 4px rgba(17, 17, 17, .05);
+}
+
+.cliente-filtro {
+    min-width: 150px;
+    flex: 0 1 180px;
+}
+
+.clientes-resumo {
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.clientes-tabela-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 18px 45px -30px rgba(17, 17, 17, .3);
+}
+
+.clientes-tabela {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.clientes-tabela th,
+.clientes-tabela td {
+    padding: 14px 12px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border);
+}
+
+.clientes-tabela thead th {
+    background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
+    color: #666;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+}
+
+.clientes-tabela tbody tr:hover td {
+    background: rgba(17, 17, 17, .015);
+}
+
+.clientes-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cliente-nome-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.cliente-nome-link:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.cliente-wa {
+    color: #5f5f5f;
+    font-size: 13px;
+}
+
+.cliente-statuses {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.cliente-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--green-bg);
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cliente-valor {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.clientes-cards {
+    display: none;
+}
+
+.cliente-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: var(--surface);
+    box-shadow: 0 12px 26px -26px rgba(17, 17, 17, .28);
+}
+
+.cliente-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.cliente-card-name {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.cliente-card-meta {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cliente-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.cliente-card-grid span {
+    display: block;
+    color: #6b6b6b;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 4px;
+}
+
+.cliente-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.cliente-card-actions button,
+.cliente-card-actions a {
+    flex: 1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--background);
+    color: var(--text);
+    text-decoration: none;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.btn-cliente-wa {
+    background: var(--green) !important;
+    border-color: var(--green) !important;
+    color: #fff !important;
+}
+
+.clientes-vazio {
+    padding: 32px 10px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.cliente-modal .modal-content {
+    max-width: 760px;
+}
+
+.cliente-historico {
+    margin-top: 18px;
+}
+
+.cliente-historico-item {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+}
+
+.cliente-historico-data {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cliente-historico-main strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--text);
+}
+
+.cliente-historico-main span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cliente-historico-right {
+    text-align: right;
+}
+
+.cliente-historico-right strong {
+    display: block;
+    color: var(--text);
+}
+
+.cliente-historico-right span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.cliente-whatsapp-header {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 760px) {
+    .precos-scroll { margin-inline: -10px; padding-inline: 10px; }
+    .clientes-tabela-wrap { display: none; }
+    .clientes-cards { display: block; }
+    .clientes-toolbar .cliente-busca { flex-basis: 100%; }
+    .cliente-filtro { flex: 1 1 140px; min-width: 130px; }
+    .cliente-historico-item { grid-template-columns: 1fr; gap: 5px; }
+    .cliente-historico-right { text-align: left; }
+}
+
+
+/* ==========================================================================
+   MARGEM AUTO — painel em grafite (somente tela; a impressão continua clara)
+   ========================================================================== */
+@media screen {
+    :root {
+        --background: #151D23;
+        --surface: #1C272E;
+        --border: rgba(226, 240, 244, .14);
+        --text: #E4EAED;
+        --muted: #A7B7BD;
+        --green: #81CEE8;
+        --green-bg: rgba(129, 206, 232, .13);
+        --gold: #A1B9C1;
+        --orange: #F0BC72;
+        --orange-bg: rgba(240, 188, 114, .14);
+        --red: #E07B7B;
+        --red-bg: rgba(224, 123, 123, .12);
+        --ok: #3FB27F;               /* verde: somente indicadores financeiros positivos */
+        --ok-bg: rgba(63, 178, 127, .12);
+        --glass-light: rgba(28, 39, 46, .84);
+        --glass-dark: rgba(28, 42, 50, .96);
+        color-scheme: dark;
+    }
+    body { background-image: none; color: var(--text) }
+    .logo { color: #81CEE8 }
+    .logo::before { content: "M" }
+    .sidebar { border: 1px solid rgba(255, 255, 255, .08) }
+    .avatar { color: #10212A }
+    .summary-card:first-child span, .summary-card:first-child strong { color: #10212A }
+
+    /* superfícies e bordas */
+    .summary-card, .agendamento, .resumo-item, .dg-card, .dg-sec, .cliente-card, .clientes-toolbar, .clientes-tabela-wrap, .precos-scroll, .date-navigation {
+        background: var(--surface); border-color: var(--border); box-shadow: none; color: var(--text);
+    }
+    .agendamento:hover, .cliente-reativacao:hover { box-shadow: 0 16px 36px -24px rgba(0, 0, 0, .8); border-color: rgba(255, 255, 255, .16) }
+    .date-navigation button:hover { background: rgba(255, 255, 255, .08) }
+    .btnHoje { border-color: rgba(255, 255, 255, .2) }
+
+    /* campos */
+    input, select, textarea, #formLogin input, #formAgendamento select, .preco-input-wrap input, .cliente-filtro select {
+        background: rgba(129, 206, 232, .045); color: var(--text); border-color: rgba(226, 240, 244, .16); color-scheme: dark;
+    }
+    input:focus, select:focus, textarea:focus, #formLogin input:focus, #formAgendamento select:focus, .preco-input-wrap input:focus, .cliente-filtro select:focus,
+    #formAgendamento input:focus, #formValor input:focus, #formDespesa input:focus {
+        background: rgba(129, 206, 232, .08); border-color: rgba(129, 206, 232, .72); box-shadow: 0 0 0 4px rgba(129, 206, 232, .14);
+    }
+    input::placeholder, textarea::placeholder { color: #94A4AA }
+    select option { background: #1C272E; color: #E4EAED }
+    .preco-input-wrap span, .preco-input-wrap input:disabled { color: #A7B7BD; background: rgba(129, 206, 232, .035) }
+
+    /* botões secundários e abas */
+    .btn-lembrete, .btn-valor, .cliente-wa, .btn-cliente-wa { background: var(--green-bg) !important; border: 1px solid var(--border) !important; color: var(--text) !important }
+    .btn-lembrete:hover, .btn-valor:hover { background: rgba(129, 206, 232, .2) !important }
+    .btn-excluir-despesa:hover { background: rgba(224, 123, 123, .18) }
+    .abas-prof { background: rgba(255, 255, 255, .04); border-color: rgba(255, 255, 255, .08); box-shadow: none }
+    .aba-prof:hover { border-color: rgba(255, 255, 255, .06) }
+    .aba-prof.ativa { background: var(--green); color: #10212A; box-shadow: none }
+    .dg-seg button.on, .dg-btn:hover { background: var(--green); color: #10212A }
+    .pr-aplicar-todos:hover { color: #10212A }
+    .dg-tip { background: #27353D; color: var(--text) }
+    .dg-hit:hover { fill: rgba(255, 255, 255, .06) }
+    .dg-b0 { fill: var(--text) }
+
+    /* indicadores: verde só para o que é positivo no financeiro */
+    .dg-d.up { color: var(--ok) }
+    .dg-d.down, .dg-st .neg { color: var(--red) }
+
+    /* horários livres, resumo, textos de apoio */
+    .horario-livre .horario, .horario-livre .cliente-nome, .horario-livre .info { color: var(--muted) }
+    .resumo-label, .precos-legenda, .precos-info, .cliente-card-grid span { color: var(--muted) }
+    .tabela-precos thead th, .clientes-tabela thead th { background: #27353D; color: #BAC6CB }
+    .tabela-precos th, .tabela-precos td, .clientes-tabela th, .clientes-tabela td { border-color: rgba(255, 255, 255, .07) }
+    .tabela-precos tbody tr:hover td, .clientes-tabela tbody tr:hover td { background: rgba(255, 255, 255, .03) }
+    .preco-disponivel { color: var(--text) }
+
+    /* modais */
+    .modal { background: rgba(5, 6, 7, .62) }
+    .modal-content {
+        background: rgba(29, 42, 50, .98); color: var(--text); border-color: rgba(226, 240, 244, .14);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 30px 80px -24px rgba(0, 0, 0, .8);
+    }
+    .fechar-modal { background: rgba(255, 255, 255, .06); color: var(--text) } .fechar-modal:hover { background: rgba(255, 255, 255, .12) }
+    .btn-modal-cancelar { background: transparent; border-color: rgba(255, 255, 255, .16); color: var(--text) }
+
+    /* login */
+    body:has(#formLogin) { background: #151D23 }
+}
+
+/* =================================
+   PREÇOS — tabela única por serviço
+================================= */
+.tabela-precos.tabela-precos-simples { min-width: 560px; }
+.tabela-precos-simples .pr-excluir {
+    border: 0;
+    background: transparent;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 6px;
+}
+
+.tabela-precos.tabela-precos-simples { min-width: 760px; }
+.preco-descricao { min-width: 260px; }
+.preco-descricao textarea {
+    width: 100%;
+    min-height: 56px;
+    resize: vertical;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--background);
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.preco-descricao textarea:focus { outline: none; border-color: var(--text); }

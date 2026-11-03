@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meus horários | MARGEM AUTO</title>
+<meta name="description" content="Veja, remarque ou cancele seus horários no MARGEM AUTO.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#101112">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cliente.css">
+</head>
+<body>
+
+<header id="hd" class="hd on">
+  <a href="index.html" class="brand" aria-label="MARGEM AUTO - início"><img src="../assets/logo.svg" alt="MARGEM AUTO" width="330" height="64"></a>
+  <nav id="nav" class="nav" aria-label="Principal">
+    <a href="index.html#servicos">Serviços</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="index.html#galeria">Galeria</a>
+    <a href="index.html#contato">Contato</a>
+    <button type="button" class="btn nav-cta" id="goAgendar">Agendar</button>
+  </nav>
+  <button id="burger" class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><i></i><i></i></button>
+</header>
+
+<main class="light cl">
+  <div class="wrap cl-wrap">
+
+    <!-- ACESSO: entrar / criar conta / recuperar senha -->
+    <section id="vAuth" class="cl-login" data-mode="entrar" hidden>
+      <p class="eyebrow">Área do cliente</p>
+      <h1 id="auTitulo">Entrar.</h1>
+      <p class="cl-sub" id="auSub">Acesse sua conta para ver, remarcar ou cancelar seus horários.</p>
+
+      <div class="tabs tabs-auth" role="tablist" id="auTabs">
+        <button type="button" role="tab" class="tab on" data-mode="entrar" aria-selected="true">Entrar</button>
+        <button type="button" role="tab" class="tab" data-mode="criar" aria-selected="false">Criar conta</button>
+      </div>
+
+      <form id="fEntrar" class="cl-form" data-f="entrar" novalidate>
+        <label for="enEmail">E-mail</label>
+        <input type="email" id="enEmail" placeholder="voce@email.com" autocomplete="email" inputmode="email" required>
+        <label for="enSenha">Senha</label>
+        <input type="password" id="enSenha" placeholder="Sua senha" autocomplete="current-password" required>
+        <p class="cl-erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid lg">Entrar <span class="arr" aria-hidden="true">→</span></button>
+        <button type="button" class="link-btn" data-go="esqueci">Esqueci minha senha</button>
+      </form>
+
+      <form id="fCriar" class="cl-form" data-f="criar" novalidate hidden>
+        <label for="crNome">Nome</label>
+        <input type="text" id="crNome" placeholder="Seu nome" autocomplete="name" required>
+        <label for="crWa">WhatsApp</label>
+        <input type="tel" id="crWa" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" required>
+        <label for="crEmail">E-mail</label>
+        <input type="email" id="crEmail" placeholder="voce@email.com" autocomplete="email" inputmode="email" required>
+        <label for="crSenha">Senha</label>
+        <input type="password" id="crSenha" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8" required>
+        <p class="cl-erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid lg">Criar minha conta <span class="arr" aria-hidden="true">→</span></button>
+        <p class="cl-nota">Ao criar a conta, os agendamentos que você fizer logado ficam salvos aqui para você remarcar ou cancelar.</p>
+      </form>
+
+      <form id="fEsqueci" class="cl-form" data-f="esqueci" novalidate hidden>
+        <label for="esEmail">E-mail da conta</label>
+        <input type="email" id="esEmail" placeholder="voce@email.com" autocomplete="email" inputmode="email" required>
+        <p class="cl-erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid lg">Enviar link de recuperação</button>
+        <button type="button" class="link-btn" data-go="entrar">Voltar para entrar</button>
+      </form>
+
+      <form id="fNova" class="cl-form" data-f="nova" novalidate hidden>
+        <label for="nvSenha">Nova senha</label>
+        <input type="password" id="nvSenha" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8" required>
+        <p class="cl-erro" data-erro role="alert"></p>
+        <button type="submit" class="btn solid lg">Salvar nova senha</button>
+      </form>
+
+      <p id="auOk" class="cl-ok" role="status" hidden></p>
+    </section>
+
+    <!-- LISTA -->
+    <section id="vLista" class="cl-lista" hidden>
+      <header class="cl-top">
+        <div>
+          <p class="eyebrow">Área do cliente</p>
+          <h1 id="clOla">Olá.</h1>
+        </div>
+        <div class="cl-top-btns">
+          <button type="button" class="btn solid" id="clNovo">Novo agendamento <span class="arr" aria-hidden="true">→</span></button>
+          <button type="button" class="btn ghost" id="clPerfil">Meus dados</button>
+          <button type="button" class="btn ghost" id="clSair">Sair</button>
+        </div>
+      </header>
+
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="tab on" data-tab="prox" aria-selected="true">Próximos <b id="nProx">0</b></button>
+        <button type="button" role="tab" class="tab" data-tab="hist" aria-selected="false">Histórico <b id="nHist">0</b></button>
+      </div>
+
+      <p id="clAviso" class="cl-aviso" hidden></p>
+      <div id="clCards" class="cards"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-bot ft-bot-solo">
+    <small>© <span id="yr"></span> MARGEM AUTO. Todos os direitos reservados.</small>
+    <small><a href="index.html">Voltar ao site</a></small>
+  </div>
+</footer>
+
+<!-- MODAL: cancelar -->
+<div id="mCancel" class="mdl" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mcT">
+  <div class="mdl-bg" data-mclose></div>
+  <div class="mdl-p">
+    <h2 id="mcT">Cancelar este horário?</h2>
+    <p id="mcTxt" class="mdl-txt"></p>
+    <p id="mcErr" class="cl-erro" role="alert"></p>
+    <div class="mdl-btns">
+      <button type="button" class="btn ghost" data-mclose>Manter horário</button>
+      <button type="button" class="btn solid" id="mcOk">Sim, cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: remarcar -->
+<div id="mEdit" class="mdl" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="meT">
+  <div class="mdl-bg" data-mclose></div>
+  <div class="mdl-p mdl-wide">
+    <button type="button" class="mdl-x" data-mclose aria-label="Fechar">×</button>
+    <h2 id="meT">Remarcar horário</h2>
+    <p id="meAtual" class="mdl-txt"></p>
+
+    <h3>Serviço</h3>
+    <div class="opts opts-sm" id="meServ" role="radiogroup" aria-label="Serviço"></div>
+
+    <h3>Dia</h3>
+    <div class="days" id="meDias" role="radiogroup" aria-label="Data"></div>
+    <label class="alt" for="meData">Ou escolha outra data</label>
+    <input type="date" id="meData">
+
+    <h3>Horário</h3>
+    <p class="hint" id="meHint"></p>
+    <div class="times" id="meHor" role="radiogroup" aria-label="Horário"></div>
+
+    <p id="meErr" class="cl-erro" role="alert"></p>
+    <div class="mdl-btns">
+      <button type="button" class="btn ghost" data-mclose>Voltar</button>
+      <button type="button" class="btn solid" id="meOk" disabled>Salvar alteração</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: meus dados -->
+<div id="mPerfil" class="mdl" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mpT">
+  <div class="mdl-bg" data-mclose></div>
+  <div class="mdl-p mdl-wide">
+    <button type="button" class="mdl-x" data-mclose aria-label="Fechar">×</button>
+    <h2 id="mpT">Meus dados</h2>
+    <p class="mdl-txt" id="mpEmail"></p>
+    <form id="fPerfil" class="cl-form" novalidate>
+      <label for="pfNome">Nome</label>
+      <input type="text" id="pfNome" autocomplete="name" required>
+      <label for="pfWa">WhatsApp</label>
+      <input type="tel" id="pfWa" autocomplete="tel" inputmode="tel" required>
+      <p class="cl-erro" data-erro role="alert"></p>
+      <button type="submit" class="btn solid">Salvar dados</button>
+    </form>
+    <form id="fSenha" class="cl-form" novalidate>
+      <h3>Alterar senha</h3>
+      <label for="pfSenha">Nova senha</label>
+      <input type="password" id="pfSenha" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8">
+      <p class="cl-erro" data-erro role="alert"></p>
+      <button type="submit" class="btn ghost">Alterar senha</button>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config-site.js"></script>
+<script src="cliente.js"></script>
+</body>
+</html>
